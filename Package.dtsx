@@ -11,10 +11,64 @@
   DTS:LocaleID="1045"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="1"
-  DTS:VersionGUID="{6F063065-F429-48EC-943B-D3E37F034C69}">
+  DTS:VersionBuild="4"
+  DTS:VersionGUID="{7A7BC6FF-533C-412C-AA03-27E147DF17F5}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[data.sql]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{6B8F0A56-F7DC-4182-87D0-600B0EE09EB9}"
+      DTS:ObjectName="data.sql">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="C:\Users\Paulina\Desktop\hd skrypcioszki\data.sql" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-6H85BFF.wycieczka]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{69431C9A-A1C0-4419-9E6E-0C6DB41A49B8}"
+      DTS:ObjectName="DESKTOP-6H85BFF.wycieczka">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-6H85BFF;Initial Catalog=wycieczka;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package-{69431C9A-A1C0-4419-9E6E-0C6DB41A49B8}DESKTOP-6H85BFF.wycieczka;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[oferta.sql]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{A3A435B3-800C-406D-BB65-CADC938A482C}"
+      DTS:ObjectName="oferta.sql">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="C:\Users\Paulina\Desktop\hd skrypcioszki\oferta.sql" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[pobyt.sql]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{08F592D6-9602-4984-99F3-A361A0A95CE9}"
+      DTS:ObjectName="pobyt.sql">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="C:\Users\Paulina\Desktop\hd skrypcioszki\pobyt.sql" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[ubezpieczenie.sql]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{E6FA5919-1447-440A-A076-A69F513963A0}"
+      DTS:ObjectName="ubezpieczenie.sql">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="C:\Users\Paulina\Desktop\hd skrypcioszki\ubezpieczenie.sql" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
   <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable
@@ -25,10 +79,13 @@
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Inserting into Date"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
-        <SQLTask:SqlTaskData xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{69431C9A-A1C0-4419-9E6E-0C6DB41A49B8}"
+          SQLTask:SqlStmtSourceType="FileConnection"
+          SQLTask:SqlStatementSource="data.sql" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -39,10 +96,13 @@
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Inserting into Oferta"
-      DTS:ThreadHint="3">
+      DTS:ThreadHint="2">
       <DTS:Variables />
       <DTS:ObjectData>
-        <SQLTask:SqlTaskData xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{69431C9A-A1C0-4419-9E6E-0C6DB41A49B8}"
+          SQLTask:SqlStmtSourceType="FileConnection"
+          SQLTask:SqlStatementSource="oferta.sql" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -53,10 +113,13 @@
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Inserting into Pobyt"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
-        <SQLTask:SqlTaskData xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{69431C9A-A1C0-4419-9E6E-0C6DB41A49B8}"
+          SQLTask:SqlStmtSourceType="FileConnection"
+          SQLTask:SqlStatementSource="pobyt.sql" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -67,10 +130,13 @@
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Inserting into Ubezpieczenie"
-      DTS:ThreadHint="2">
+      DTS:ThreadHint="3">
       <DTS:Variables />
       <DTS:ObjectData>
-        <SQLTask:SqlTaskData xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{69431C9A-A1C0-4419-9E6E-0C6DB41A49B8}"
+          SQLTask:SqlStmtSourceType="FileConnection"
+          SQLTask:SqlStatementSource="ubezpieczenie.sql" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -89,19 +155,19 @@
         <NodeLayout
           Size="167,42"
           Id="Package\Inserting into Date"
-          TopLeft="289.5,131.5" />
-        <NodeLayout
-          Size="212,42"
-          Id="Package\Inserting into Ubezpieczenie"
-          TopLeft="343.5,379.5" />
+          TopLeft="295.5,164.5" />
         <NodeLayout
           Size="218,42"
           Id="Package\Inserting into Oferta"
-          TopLeft="24.5,226.5" />
+          TopLeft="44.5,262.5" />
         <NodeLayout
           Size="222,42"
           Id="Package\Inserting into Pobyt"
-          TopLeft="516.5,202.5" />
+          TopLeft="475.5,289.5" />
+        <NodeLayout
+          Size="212,42"
+          Id="Package\Inserting into Ubezpieczenie"
+          TopLeft="256.5,407.5" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
