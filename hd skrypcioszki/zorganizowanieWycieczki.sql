@@ -17,24 +17,26 @@ go
 bulk insert zorganizowanieWycieczkiTmp from 'C:\Users\Paulina\source\repos\etlProcess\hd skrypcioszki\fake_data_t2.csv' with ( fieldterminator=',', rowterminator='\n')
 go
 
-CREATE VIEW zorganizowanieWycieczkiView
-AS
-SELECT DISTINCT
-	(select min(IDoferty) from wycieczka.dbo.oferta where wycieczka.dbo.oferta.sezon = OfferMaster.dbo.offer.season) as [IDoferty],
-	(select min(IDpracownika) from wycieczka.dbo.pracownik where wycieczka.dbo.pracownik.IDpracownika = OfferMaster.dbo.offer.employeeid and wycieczka.dbo.pracownik.aktualnoscrekordu = 1) as [IDpracownika],
-	(select min(IDdaty) from wycieczka.dbo.tabelaData where wycieczka.dbo.tabelaData.dataa = OfferMaster.dbo.offer.dateofstart  and zorganizowanieWycieczkiTmp.IDoferty = OfferMaster.dbo.offer.offerid) as [IDdatyRozpoczeciaWycieczki],
-	(select min(IDtransportu) from wycieczka.dbo.transport where wycieczka.dbo.transport.miejsceWyjazdu = OfferMaster.dbo.transport.cityofdeparture and wycieczka.dbo.transport.srodekLokomocji = OfferMaster.dbo.transport.meanoftransport and wycieczka.dbo.transport.nazwaFirmy = OfferMaster.dbo.transport.nameofcompany) as [IDtransportu],
-	(select min(IDubezpieczenia) from wycieczka.dbo.ubezpieczenie where wycieczka.dbo.ubezpieczenie.rodzajUbezpieczenia = OfferMaster.dbo.insurance.kind) as [IDubezpieczenia],
-	(select min(IDhotelu) from wycieczka.dbo.hotel where wycieczka.dbo.hotel.nazwa = OfferMaster.dbo.hotel.nameofhotel and wycieczka.dbo.hotel.kraj = OfferMaster.dbo.hotel.country) as [IDhotelu],
-	1 as [IDpobytu],
-	(select min(IDdaty) from wycieczka.dbo.tabelaData where wycieczka.dbo.tabelaData.dataa = OfferMaster.dbo.transport.dateofcontract) as [IDdatyZawarciaUmowyZFirmaTransportowa],
-	(select min(SUM(Cast(liczbaWykupionychMiejsc as numeric(10,2)))) from zorganizowanieWycieczkiTmp where zorganizowanieWycieczkiTmp.IDoferty = OfferMaster.dbo.offer.offerid) as [liczbaMiejscWykupionychPrzezKlientow],
-	(select min(SUM(Cast(kwotaZap³acona as numeric(10,2)))) from zorganizowanieWycieczkiTmp where zorganizowanieWycieczkiTmp.IDoferty = OfferMaster.dbo.offer.offerid) as [dochodZKupnaWycieczek],
-	(select min(numberofseats) from OfferMaster.dbo.offer where zorganizowanieWycieczkiTmp.IDoferty = OfferMaster.dbo.offer.offerid) as [liczbaWszystkichDostepnychMiejscWTejOfercie],
-	(select min(numberofseats * costperperson) from OfferMaster.dbo.offer where zorganizowanieWycieczkiTmp.IDoferty = OfferMaster.dbo.offer.offerid) as [kosztZorganizowaniaWycieczki],
-	(select min(numberofseats * costperperson - SUM(Cast(kwotaZap³acona as numeric(10,2)))) from OfferMaster.dbo.offer, zorganizowanieWycieczkiTmp where zorganizowanieWycieczkiTmp.IDoferty = OfferMaster.dbo.offer.offerid) as [zysk]	
-FROM OfferMaster.dbo.offer, wycieczka.dbo.oferta, OfferMaster.dbo.transport, OfferMaster.dbo.insurance, OfferMaster.dbo.hotel, zorganizowanieWycieczkiTmp where  zorganizowanieWycieczkiTmp.IDoferty = OfferMaster.dbo.offer.offerid;
+select * from OfferMaster.dbo.offer, zorganizowanieWycieczkiTmp where OfferMaster.dbo.offer.offerid = zorganizowanieWycieczkiTmp.IDoferty
+go
 
+
+create view zorganizowanieWycieczkiTmp2 
+as
+select 
+OfferMaster.dbo.offer.offerid as [IdOferty],
+DATEDIFF(day, OfferMaster.dbo.offer.dateOfStart, OfferMaster.dbo.offer.dateOfEnd) as [d³ugoœæPobytu],
+sum(liczbaWykupionychMiejsc)  as [sumaWykupionychMiejsc],
+sum(kwotaZap³acona) as [sumaZap³acona],
+OfferMaster.dbo.offer.numberOfSeats as [liczbaWszystkichMiejsc],
+OfferMaster.dbo.offer.numberofseats * OfferMaster.dbo.offer.costperperson as [kosztZorganizowaniaWycieczki],
+sum(kwotaZap³acona) - OfferMaster.dbo.offer.numberofseats * OfferMaster.dbo.offer.costperperson as [zysk]
+from OfferMaster.dbo.offer, zorganizowanieWycieczkiTmp where OfferMaster.dbo.offer.offerid =  zorganizowanieWycieczkiTmp.IDoferty group by OfferMaster.dbo.offer.offerid, OfferMaster.dbo.offer.dateofend, OfferMaster.dbo.offer.dateofstart, OfferMaster.dbo.offer.numberofseats, OfferMaster.dbo.offer.costperperson
+go 
+
+select * from zorganizowanieWycieczkiTmp2
+drop view zorganizowanieWycieczkiTmp2
+go
 
 -- wypelnienie danymi hurtowni
 go
@@ -79,6 +81,7 @@ MERGE INTO wycieczka.dbo.zorganizowanieWycieczki USING zorganizowanieWycieczkiVi
 go
 Drop View zorganizowanieWycieczkiView;
 drop table zorganizowanieWycieczkiTmp
+drop view zorganizowanieWycieczkiTmp2
 go 
 
 select * from zorganizowanieWycieczki
