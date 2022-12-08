@@ -1,6 +1,11 @@
-USE master;
-CREATE DATABASE OfferMaster  collate Latin1_General_CI_AS;
-GO
+drop table employee
+drop table insurance
+drop table transport
+drop table food
+drop table room
+drop table hotel
+drop table stay
+drop table offer
 
 create table employee(
 	employeeid bigint primary key,
@@ -90,3 +95,5 @@ bulk insert dbo.food from 'c:\users\paulina\documents\github\datagenerator\food_
 bulk insert dbo.room from 'c:\users\paulina\documents\github\datagenerator\rooms_t2.bulk' with (datafiletype = 'widechar', fieldterminator='|')
 bulk insert dbo.stay from 'c:\users\paulina\documents\github\datagenerator\stays_t2.bulk' with (datafiletype = 'widechar', fieldterminator='|')
 bulk insert dbo.offer from 'c:\users\paulina\documents\github\datagenerator\offers_t2.bulk' with (datafiletype = 'widechar', fieldterminator='|')
+
+select * from employee

@@ -1,0 +1,290 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="12/4/2022 4:56:01 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-6H85BFF"
+  DTS:CreatorName="DESKTOP-6H85BFF\Paulina"
+  DTS:DTSID="{DF9B19DE-1FC6-4107-A311-A9D8295982A8}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.948.0"
+  DTS:LocaleID="1045"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="1"
+  DTS:VersionGUID="{20EAF320-156D-4F86-A6A9-2D808496AB96}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-6H85BFF.wycieczka]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{C15C7DF6-D256-4E66-A755-8DAF8497053A}"
+      DTS:ObjectName="DESKTOP-6H85BFF.wycieczka">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-6H85BFF;Initial Catalog=wycieczka;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{C15C7DF6-D256-4E66-A755-8DAF8497053A}DESKTOP-6H85BFF.wycieczka;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[hotel.sql]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{FDA70321-AC77-41B7-8C45-4AFE9030DECD}"
+      DTS:ObjectName="hotel.sql">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="C:\Users\Paulina\source\repos\etlProcess\hd skrypcioszki\hotel.sql" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[pracownik.sql]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{34A11028-F998-4FFD-9FA9-2DEB33448D4D}"
+      DTS:ObjectName="pracownik.sql">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="C:\Users\Paulina\source\repos\etlProcess\hd skrypcioszki\pracownik.sql" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[transport.sql]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{77C28B6B-7474-44B6-B717-2FB51A419CA7}"
+      DTS:ObjectName="transport.sql">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="C:\Users\Paulina\source\repos\etlProcess\hd skrypcioszki\transport.sql" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Populating Hotel table"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{7CBD8E52-3297-40F1-910E-9EEBD827FFEC}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Populating Hotel table"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{C15C7DF6-D256-4E66-A755-8DAF8497053A}"
+          SQLTask:SqlStmtSourceType="FileConnection"
+          SQLTask:SqlStatementSource="transport.sql" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Populating Pracownik table"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{3BCD700C-02E0-4D12-B526-D1565D701064}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Populating Pracownik table"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{C15C7DF6-D256-4E66-A755-8DAF8497053A}"
+          SQLTask:SqlStmtSourceType="FileConnection"
+          SQLTask:SqlStatementSource="pracownik.sql" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Populating Transport table"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{01FA60C1-D862-4489-A439-EBCD3423985F}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Populating Transport table"
+      DTS:ThreadHint="2">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{C15C7DF6-D256-4E66-A755-8DAF8497053A}"
+          SQLTask:SqlStmtSourceType="FileConnection"
+          SQLTask:SqlStatementSource="transport.sql" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Populating ZorganizowanieWycieczki table"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{470C70C0-8459-468A-BB22-9890D241DE8A}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Populating ZorganizowanieWycieczki table"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{9372B4CE-7028-497B-AC6C-B9641282343D}"
+      DTS:From="Package\Populating Transport table"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Populating ZorganizowanieWycieczki table" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{D4C4BB25-2A5F-4F20-8651-7F4C793643AA}"
+      DTS:From="Package\Populating Hotel table"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Populating ZorganizowanieWycieczki table" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{D958EE4E-2F18-4D20-82D9-6D5291BE04A4}"
+      DTS:From="Package\Populating Pracownik table"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Populating ZorganizowanieWycieczki table" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="163,42"
+          Id="Package\Populating Transport table"
+          TopLeft="73.5,146.5" />
+        <NodeLayout
+          Size="163,42"
+          Id="Package\Populating Hotel table"
+          TopLeft="281.5,151.5" />
+        <NodeLayout
+          Size="163,42"
+          Id="Package\Populating Pracownik table"
+          TopLeft="503.5,154.5" />
+        <NodeLayout
+          Size="277,42"
+          Id="Package\Populating ZorganizowanieWycieczki table"
+          TopLeft="213.5,421.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="155,188.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="197,233"
+              Start="0,0"
+              End="197,225.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,112.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,112.5"
+                    Point2="0,116.5"
+                    Point3="4,116.5" />
+                  <mssgle:LineSegment
+                    End="193,116.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="193,116.5"
+                    Point2="197,116.5"
+                    Point3="197,120.5" />
+                  <mssgle:LineSegment
+                    End="197,225.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="363,193.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="33.8333333333333,228"
+              Start="0,0"
+              End="33.8333333333333,220.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,132.014357501795" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,132.014357501795"
+                    Point2="0,136.014357501795"
+                    Point3="4,136.014357501795" />
+                  <mssgle:LineSegment
+                    End="29.8333333333333,136.014357501795" />
+                  <mssgle:CubicBezierSegment
+                    Point1="29.8333333333333,136.014357501795"
+                    Point2="33.8333333333333,136.014357501795"
+                    Point3="33.8333333333333,140.014357501795" />
+                  <mssgle:LineSegment
+                    End="33.8333333333333,220.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="585,196.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-165.75,225"
+              Start="0,0"
+              End="-165.75,217.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,144.569725864124" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,144.569725864124"
+                    Point2="0,148.569725864124"
+                    Point3="-4,148.569725864124" />
+                  <mssgle:LineSegment
+                    End="-161.75,148.569725864124" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-161.75,148.569725864124"
+                    Point2="-165.75,148.569725864124"
+                    Point3="-165.75,152.569725864124" />
+                  <mssgle:LineSegment
+                    End="-165.75,217.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

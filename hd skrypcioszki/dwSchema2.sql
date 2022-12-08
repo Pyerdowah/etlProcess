@@ -33,7 +33,7 @@ create table transport (
 
 create table pobyt (
 	IDpobytu bigint identity(1,1) primary key,
-	dlugoscPobytu int
+	dlugoscPobytu varchar(20)
 )
 
 create table hotel (
