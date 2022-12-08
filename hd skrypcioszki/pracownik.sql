@@ -102,7 +102,8 @@ MERGE INTO wycieczka.dbo.pracownik	USING pracownikView
 				);
 
 MERGE INTO wycieczka.dbo.pracownik	USING pracownikView2
-		ON 0=1
+		ON wycieczka.dbo.pracownik.IDpracownika = pracownikView2.IDpracownika
+		and wycieczka.dbo.pracownik.aktualnoscRekordu = pracownikView2.aktualnoscRekordu
 		WHEN not Matched
 			THEN
 				INSERT
@@ -126,6 +127,4 @@ drop view pracownikView2;
 drop function dbo.getImie
 
 select * from wycieczka.dbo.pracownik
-
-
 
