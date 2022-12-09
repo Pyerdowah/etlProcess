@@ -1,12 +1,5 @@
--- usuwanie widoku
-If (object_id('transportView') is not null) 
-	Drop View transportView;
-
 
 -- stworzenie widoku
-go
-
-delete from transport
 go
 CREATE VIEW transportView
 AS

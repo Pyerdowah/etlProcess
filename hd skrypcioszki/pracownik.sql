@@ -8,7 +8,6 @@ BEGIN
     RETURN COALESCE(@imie + ' ' + @nazwisko, '');
 END;
 go
-delete from pracownik
 -- usuwanie widoku
 If (object_id('pracownikView') is not null) 
 	Drop View pracownikView;
@@ -125,6 +124,4 @@ Drop View pracownikView;
 go 
 drop view pracownikView2;
 drop function dbo.getImie
-
-select * from wycieczka.dbo.pracownik
 

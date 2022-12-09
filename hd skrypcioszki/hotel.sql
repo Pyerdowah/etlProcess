@@ -12,15 +12,8 @@ END;
 go
 
 
--- usuwanie widoku
-If (object_id('hotelView') is not null) 
-	Drop View hotelView;
 
 
--- stworzenie widoku
-go
-delete from hotel
-go
 CREATE VIEW hotelView
 AS
 SELECT DISTINCT
@@ -68,5 +61,3 @@ MERGE INTO wycieczka.dbo.hotel	USING hotelView
 go
 Drop View hotelView;
 drop function dbo.getMiejscowosc
-
-select * from OfferMaster.dbo.hotel

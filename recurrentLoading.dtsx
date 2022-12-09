@@ -11,8 +11,8 @@
   DTS:LocaleID="1045"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="1"
-  DTS:VersionGUID="{20EAF320-156D-4F86-A6A9-2D808496AB96}">
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{55EB4C54-3385-4CAC-A153-BBB35A9942D1}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -58,6 +58,16 @@
           DTS:ConnectionString="C:\Users\Paulina\source\repos\etlProcess\hd skrypcioszki\transport.sql" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[zorganizowanieWycieczki.sql]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{258BD1FF-F5C9-43D9-8DD5-51C5B5890CC1}"
+      DTS:ObjectName="zorganizowanieWycieczki.sql">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="C:\Users\Paulina\source\repos\etlProcess\hd skrypcioszki\zorganizowanieWycieczki.sql" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
   <DTS:Variables />
   <DTS:Executables>
@@ -69,7 +79,7 @@
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Populating Hotel table"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -86,7 +96,7 @@
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Populating Pracownik table"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -103,7 +113,7 @@
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Populating Transport table"
-      DTS:ThreadHint="2">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -123,7 +133,10 @@
       DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
-        <SQLTask:SqlTaskData xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{C15C7DF6-D256-4E66-A755-8DAF8497053A}"
+          SQLTask:SqlStmtSourceType="FileConnection"
+          SQLTask:SqlStatementSource="zorganizowanieWycieczki.sql" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -131,11 +144,11 @@
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint]"
       DTS:CreationName=""
-      DTS:DTSID="{9372B4CE-7028-497B-AC6C-B9641282343D}"
+      DTS:DTSID="{9BB32F2B-4039-4297-B655-950E0850C1AE}"
       DTS:From="Package\Populating Transport table"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
-      DTS:To="Package\Populating ZorganizowanieWycieczki table" />
+      DTS:To="Package\Populating Hotel table" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
       DTS:CreationName=""
@@ -167,10 +180,6 @@
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="163,42"
-          Id="Package\Populating Transport table"
-          TopLeft="73.5,146.5" />
-        <NodeLayout
-          Size="163,42"
           Id="Package\Populating Hotel table"
           TopLeft="281.5,151.5" />
         <NodeLayout
@@ -178,43 +187,13 @@
           Id="Package\Populating Pracownik table"
           TopLeft="503.5,154.5" />
         <NodeLayout
+          Size="163,42"
+          Id="Package\Populating Transport table"
+          TopLeft="104.5,37.5" />
+        <NodeLayout
           Size="277,42"
           Id="Package\Populating ZorganizowanieWycieczki table"
           TopLeft="213.5,421.5" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="155,188.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="197,233"
-              Start="0,0"
-              End="197,225.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,112.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,112.5"
-                    Point2="0,116.5"
-                    Point3="4,116.5" />
-                  <mssgle:LineSegment
-                    End="193,116.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="193,116.5"
-                    Point2="197,116.5"
-                    Point3="197,120.5" />
-                  <mssgle:LineSegment
-                    End="197,225.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
           TopLeft="363,193.5">
@@ -275,6 +254,40 @@
                     Point3="-165.75,152.569725864124" />
                   <mssgle:LineSegment
                     End="-165.75,217.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="186,79.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="177,72"
+              Start="0,0"
+              End="177,64.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,32"
+                    Point2="0,36"
+                    Point3="4,36" />
+                  <mssgle:LineSegment
+                    End="173,36" />
+                  <mssgle:CubicBezierSegment
+                    Point1="173,36"
+                    Point2="177,36"
+                    Point3="177,40" />
+                  <mssgle:LineSegment
+                    End="177,64.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

@@ -15,9 +15,3 @@ While @DateInProcess <= @EndDate
 		Set @DateInProcess = DateAdd(d, 1, @DateInProcess);
 	End
 GO
-
-
-select * from tabelaData
-select * from pobyt
-select * from ubezpieczenie
-select * from oferta
