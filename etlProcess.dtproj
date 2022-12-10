@@ -26,7 +26,7 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">DESKTOP-6H85BFF</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAMaDPIadkCEqjHL2GJBLisgAAAAACAAAAAAAQZgAAAAEAACAAAADSVFAJ51L15QdksQYnMGmE1sUhuuEQ7XsRnzZ3dFC2KAAAAAAOgAAAAAIAACAAAACWw0D1yJTLJnJUStB95MeNEDvDQOJrW3q6k3uMQHGHOpAAAACqtOZpaC/L//+EtpsDen+/qpntiD+hg/shTygpWeZ6mXwnoOIf0oEGtzmrkmk3AVufBY3ovsCx2Ux3oC/mnccdxOnxHTvZECeZiwW9Qp0zqkoti5dm4S/Ty26wJEJJPAbERKEWHNV0N57pxmGHVARUp1mH1irWfwfF5UjrOU/fkZxtnsxnmyNN8DlYZ091EnFAAAAAKhjmRJb4b/Q/mPdOtRrXmDscpk6NcAcnxAghVEFJiGYuRkbpJsqMUeDbLvISG6BE7G1fMdn7RlXohpiJW+qZWA==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAMaDPIadkCEqjHL2GJBLisgAAAAACAAAAAAAQZgAAAAEAACAAAADE8C0mK1MWDWTLqTcEpFAUgUEzGMsifoXXzcD8b7KpRwAAAAAOgAAAAAIAACAAAAC8IJDYvl4mVh0o/An+ZcFLIGt3o3+TH4NN9qxWn48Vz5AAAAAqidxY8/pwYDfBzRqARvEjLh9k8Wmh0GrICXEMGemdljntvmn1Bi1Ejy6k8DxobidCrgXyt/RJfzBD0zhAI9QSQwXy6sDKJq8skZ49eDGfnnuMe1c9dyDZZbf0jv3AiIyCwbIwcMxrLMf5oj7gxb08DzpUkBueqad/2HA5WlXTOGVcpWI8Q07G3CL2i1TK2cNAAAAAAO9R95hmZGMeveo3mpHnObqv8FhMidG9PFqpKkw28YfTmEmIF4h7bK89LjslIPVLib/tG2ONiuE8WMAUc2sI+Q==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
@@ -43,10 +43,10 @@
                 <SSIS:Property SSIS:Name="Name">Package1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">16</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">17</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{D522E43B-5557-4F7A-817D-431CF266E7EC}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{144B3F01-3B3B-46DC-A4A3-8EE56AAC9AAB}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
@@ -305,36 +305,6 @@
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.fake_data_t2.csv.ConnectByProxy">
-                  <SSIS:Properties>
-                    <SSIS:Property SSIS:Name="ID">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="CreationName">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="Description">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">false</SSIS:Property>
-                    <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
-                  </SSIS:Properties>
-                </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.fake_data_t2.csv.ConnectionString">
-                  <SSIS:Properties>
-                    <SSIS:Property SSIS:Name="ID">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="CreationName">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="Description">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">C:\Users\Paulina\source\repos\etlProcess\hd skrypcioszki\fake_data_t2.csv</SSIS:Property>
-                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
-                  </SSIS:Properties>
-                </SSIS:Parameter>
                 <SSIS:Parameter SSIS:Name="CM.hotel.sql.ConnectByProxy">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
@@ -361,7 +331,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">C:\Users\Paulina\source\repos\etlProcess\hd skrypcioszki\hotel.sql</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">C:\Users\Paulina\source\repos\etlProcess\skrypty\hotel.sql</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -391,7 +361,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">C:\Users\Paulina\source\repos\etlProcess\hd skrypcioszki\pracownik.sql</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">C:\Users\Paulina\source\repos\etlProcess\skrypty\pracownik.sql</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -421,7 +391,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">C:\Users\Paulina\source\repos\etlProcess\hd skrypcioszki\transport.sql</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">C:\Users\Paulina\source\repos\etlProcess\skrypty\transport.sql</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -451,7 +421,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">C:\Users\Paulina\source\repos\etlProcess\hd skrypcioszki\zorganizowanieWycieczki.sql</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">C:\Users\Paulina\source\repos\etlProcess\skrypty\zorganizowanieWycieczki.sql</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -463,10 +433,10 @@
                 <SSIS:Property SSIS:Name="Name">Package</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">6</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">7</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{66B5024C-413A-4791-8D1A-6A7946169564}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{D1DA3C3C-95C1-46D5-93C9-ADC836D3409C}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
@@ -499,7 +469,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">C:\Users\Paulina\Desktop\hd skrypcioszki\data.sql</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">C:\Users\Paulina\source\repos\etlProcess\skrypty\data.sql</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -678,7 +648,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">C:\Users\Paulina\Desktop\hd skrypcioszki\oferta.sql</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">C:\Users\Paulina\source\repos\etlProcess\skrypty\oferta.sql</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -708,7 +678,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">C:\Users\Paulina\source\repos\etlProcess\hd skrypcioszki\pobyt.sql</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">C:\Users\Paulina\source\repos\etlProcess\skrypty\pobyt.sql</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -738,7 +708,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">C:\Users\Paulina\Desktop\hd skrypcioszki\ubezpieczenie.sql</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">C:\Users\Paulina\source\repos\etlProcess\skrypty\ubezpieczenie.sql</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>

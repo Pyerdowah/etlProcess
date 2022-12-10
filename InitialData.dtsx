@@ -11,8 +11,8 @@
   DTS:LocaleID="1045"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="6"
-  DTS:VersionGUID="{66B5024C-413A-4791-8D1A-6A7946169564}">
+  DTS:VersionBuild="7"
+  DTS:VersionGUID="{D1DA3C3C-95C1-46D5-93C9-ADC836D3409C}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -23,7 +23,7 @@
       DTS:ObjectName="data.sql">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="C:\Users\Paulina\Desktop\hd skrypcioszki\data.sql" />
+          DTS:ConnectionString="C:\Users\Paulina\source\repos\etlProcess\skrypty\data.sql" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -39,7 +39,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAMaDPIadkCEqjHL2GJBLisgAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACJabE57HdT0/5z4qBuaxrJXVs42m4D2gX8txB4LbGtOQAAAAAOgAAAAAIAACAAAADw0jdPxF68HGUvVReGJZa5gwv5GbJGW3wuqBNRENDkwxAAAADOO0DyPGxxYDoEenHSIAy1QAAAAL86i2htYpuCTfvQE0FA72dJ32FoRMqiPUKS7IWwvXqubvtyXJTDvgD7DKhEoWm/D7bB2gy34gVdpSMA7MIbGeE</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAMaDPIadkCEqjHL2GJBLisgAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABKNRhQ29OBKaEMC3G2zTGQufZpFAAuFK/KaoWeOkyG3gAAAAAOgAAAAAIAACAAAADfreF0KbkdTVN+NptKbfTSkVcNnLGxIiiQ59XWQOJ9PhAAAAA0iklcL/Mt/h+xDP+Q6sPtQAAAABunxMhUSzZiOSknN8BF/KTSHZtLzwbOQzIck1lzFSg6YI5vuzknFTffET5RqUpd6AYXb/b8nXmtBnaSw8Sd8jo</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -50,7 +50,7 @@
       DTS:ObjectName="oferta.sql">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="C:\Users\Paulina\Desktop\hd skrypcioszki\oferta.sql" />
+          DTS:ConnectionString="C:\Users\Paulina\source\repos\etlProcess\skrypty\oferta.sql" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -60,7 +60,7 @@
       DTS:ObjectName="pobyt.sql">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="C:\Users\Paulina\source\repos\etlProcess\hd skrypcioszki\pobyt.sql" />
+          DTS:ConnectionString="C:\Users\Paulina\source\repos\etlProcess\skrypty\pobyt.sql" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -70,7 +70,7 @@
       DTS:ObjectName="ubezpieczenie.sql">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="C:\Users\Paulina\Desktop\hd skrypcioszki\ubezpieczenie.sql" />
+          DTS:ConnectionString="C:\Users\Paulina\source\repos\etlProcess\skrypty\ubezpieczenie.sql" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -84,7 +84,7 @@
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Inserting into Date"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="3">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -101,7 +101,7 @@
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Inserting into Oferta"
-      DTS:ThreadHint="2">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -118,7 +118,7 @@
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Inserting into Pobyt"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -135,7 +135,7 @@
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Inserting into Ubezpieczenie"
-      DTS:ThreadHint="3">
+      DTS:ThreadHint="2">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData

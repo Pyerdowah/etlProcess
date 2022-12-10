@@ -94,7 +94,8 @@ select
 	join wycieczka.dbo.pracownik as pracownik on offer.employeeid = pracownik.IDpracownika and pracownik.aktualnoscrekordu = 1
 	join wycieczka.dbo.tabelaData as dataRozp on offer.dateofstart = dataRozp.dataa
 	join wycieczka.dbo.transport as transportt on OfferMaster.dbo.transport.meanoftransport = transportt.srodekLokomocji and OfferMaster.dbo.transport.cityofdeparture = transportt.miejsceWyjazdu and OfferMaster.dbo.transport.nameofcompany = transportt.nazwaFirmy
-	join wycieczka.dbo.hotel as hotell on hotel.nameofhotel = hotell.nazwa and hotel.country = hotell.kraj
+	join wycieczka.dbo.hotel as hotell on hotel.nameofhotel = hotell.nazwa and hotel.country = hotell.kraj and (select value from string_split((SELECT TOP 1 * FROM STRING_SPLIT(hotel.addressofhotel, ',')), ' ') where value like '%[0-9]%') = hotell.numerLokalu and 	(SELECT TOP 1 T.* FROM 
+	(SELECT TOP 2 * FROM STRING_SPLIT(hotel.addressofhotel, ',') ORDER BY value ASC) AS T ORDER BY value DESC) = hotell.nazwaUlicy
 	join zorganizowanieWycieczkiTmp2 as v2 on offer.offerid = v2.IdOferty
 	join wycieczka.dbo.tabelaData as dataTransp on OfferMaster.dbo.transport.dateofcontract = dataTransp.dataa
 
@@ -133,7 +134,8 @@ select
 	join wycieczka.dbo.pracownik as pracownik on offer.employeeid = pracownik.IDpracownika and pracownik.aktualnoscrekordu = 1
 	join wycieczka.dbo.tabelaData as dataRozp on offer.dateofstart = dataRozp.dataa
 	join wycieczka.dbo.transport as transportt on OfferMaster.dbo.transport.meanoftransport = transportt.srodekLokomocji and OfferMaster.dbo.transport.cityofdeparture = transportt.miejsceWyjazdu and OfferMaster.dbo.transport.nameofcompany = transportt.nazwaFirmy
-	join wycieczka.dbo.hotel as hotell on hotel.nameofhotel = hotell.nazwa and hotel.country = hotell.kraj
+	join wycieczka.dbo.hotel as hotell on hotel.nameofhotel = hotell.nazwa and hotel.country = hotell.kraj and (select value from string_split((SELECT TOP 1 * FROM STRING_SPLIT(hotel.addressofhotel, ',')), ' ') where value like '%[0-9]%') = hotell.numerLokalu and 	(SELECT TOP 1 T.* FROM 
+	(SELECT TOP 2 * FROM STRING_SPLIT(hotel.addressofhotel, ',') ORDER BY value ASC) AS T ORDER BY value DESC) = hotell.nazwaUlicy
 	join zorganizowanieWycieczkiTmp3 as v2 on offer.offerid = v2.IdOferty
 	join wycieczka.dbo.tabelaData as dataTransp on OfferMaster.dbo.transport.dateofcontract = dataTransp.dataa
 

@@ -1,11 +1,13 @@
-drop table OfferMaster.dbo.employee
-drop table OfferMaster.dbo.insurance
-drop table OfferMaster.dbo.transport
-drop table OfferMaster.dbo.food
-drop table OfferMaster.dbo.room
-drop table OfferMaster.dbo.hotel
-drop table OfferMaster.dbo.stay
-drop table OfferMaster.dbo.offer
+drop table if exists OfferMaster.dbo.offer
+drop table if exists OfferMaster.dbo.stay
+drop table if exists OfferMaster.dbo.hotel
+drop table if exists OfferMaster.dbo.employee
+drop table if exists OfferMaster.dbo.insurance
+drop table if exists OfferMaster.dbo.transport
+drop table if exists OfferMaster.dbo.food
+drop table if exists OfferMaster.dbo.room
+
+
 
 create table OfferMaster.dbo.employee(
 	employeeid bigint primary key,

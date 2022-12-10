@@ -79,8 +79,11 @@ SELECT DISTINCT
 	END AS [filia],
 	(select dbo.getImie(OfferMaster.dbo.employee.firstname, OfferMaster.dbo.employee.lastname)) as [imieINazwisko],
 	0 AS [aktualnoscRekordu]
-FROM OfferMaster.dbo.employee where (OfferMaster.dbo.employee.lengthofwork = 4 or OfferMaster.dbo.employee.lengthofwork = 11 or
-		 OfferMaster.dbo.employee.age = 24 or OfferMaster.dbo.employee.age = 31 or OfferMaster.dbo.employee.age = 51) 
+FROM OfferMaster.dbo.employee
+join OfferMaster.dbo.offer on OfferMaster.dbo.employee.employeeid = OfferMaster.dbo.offer.employeeid 
+join wycieczka.dbo.tabelaData on OfferMaster.dbo.offer.dateofstart = wycieczka.dbo.tabelaData.dataa
+where ((OfferMaster.dbo.employee.lengthofwork = 4 or OfferMaster.dbo.employee.lengthofwork = 11 or
+		 OfferMaster.dbo.employee.age = 24 or OfferMaster.dbo.employee.age = 31 or OfferMaster.dbo.employee.age = 51) and wycieczka.dbo.tabelaData.rok = 2022)
 
 
 -- wypelnienie danymi hurtowni
@@ -124,4 +127,3 @@ Drop View pracownikView;
 go 
 drop view pracownikView2;
 drop function dbo.getImie
-

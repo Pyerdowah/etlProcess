@@ -1,3 +1,7 @@
+-- usuwanie widoku
+If (object_id('transportView') is not null) 
+	Drop View transportView;
+go
 
 -- stworzenie widoku
 go

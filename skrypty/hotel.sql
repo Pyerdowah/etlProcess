@@ -11,7 +11,10 @@ BEGIN
 END;
 go
 
-
+-- usuwanie widoku
+If (object_id('hotelView') is not null) 
+	Drop View hotelView;
+go
 
 
 CREATE VIEW hotelView

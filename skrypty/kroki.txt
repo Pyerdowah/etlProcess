@@ -1,0 +1,9 @@
+co robimy po kolei:
+1. generujemy dane
+2. wrzucamy do dysku c bo tam jest dostęp
+3. usuwanie z hurtowni.sql
+4. OfferMaster.sql
+5. procesujemy kostkę (nie wiem czy trzeba w sumie xd)
+6. puszczamy initial data w etlProcess
+7. recurrentLoading 
+8. patrzymy w browse czy zadziałało
