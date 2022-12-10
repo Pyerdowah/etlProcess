@@ -11,8 +11,8 @@
   DTS:LocaleID="1045"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="4"
-  DTS:VersionGUID="{7A7BC6FF-533C-412C-AA03-27E147DF17F5}">
+  DTS:VersionBuild="6"
+  DTS:VersionGUID="{66B5024C-413A-4791-8D1A-6A7946169564}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -35,7 +35,12 @@
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=DESKTOP-6H85BFF;Initial Catalog=wycieczka;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package-{69431C9A-A1C0-4419-9E6E-0C6DB41A49B8}DESKTOP-6H85BFF.wycieczka;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=DESKTOP-6H85BFF\HD;User ID=wycieczka;Initial Catalog=wycieczka;Provider=SQLNCLI11.1;Auto Translate=False;Application Name=SSIS-Package-{69431C9A-A1C0-4419-9E6E-0C6DB41A49B8}DESKTOP-6H85BFF.wycieczka;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAMaDPIadkCEqjHL2GJBLisgAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACJabE57HdT0/5z4qBuaxrJXVs42m4D2gX8txB4LbGtOQAAAAAOgAAAAAIAACAAAADw0jdPxF68HGUvVReGJZa5gwv5GbJGW3wuqBNRENDkwxAAAADOO0DyPGxxYDoEenHSIAy1QAAAAL86i2htYpuCTfvQE0FA72dJ32FoRMqiPUKS7IWwvXqubvtyXJTDvgD7DKhEoWm/D7bB2gy34gVdpSMA7MIbGeE</DTS:Password>
+        </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -55,7 +60,7 @@
       DTS:ObjectName="pobyt.sql">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="C:\Users\Paulina\Desktop\hd skrypcioszki\pobyt.sql" />
+          DTS:ConnectionString="C:\Users\Paulina\source\repos\etlProcess\hd skrypcioszki\pobyt.sql" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager

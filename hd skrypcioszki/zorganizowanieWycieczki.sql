@@ -33,7 +33,7 @@ create table zorganizowanieWycieczkiTmp (
 	kwotaZap³acona numeric
 )
 go 
-bulk insert zorganizowanieWycieczkiTmp from 'C:\Users\Paulina\source\repos\etlProcess\hd skrypcioszki\fake_data_t2.csv' with ( fieldterminator=',', rowterminator='\n')
+bulk insert zorganizowanieWycieczkiTmp from 'C:\fake_data_t2.csv' with ( fieldterminator=',', rowterminator='\n')
 go
 
 
